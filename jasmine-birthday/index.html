@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jasmine's 11th Birthday</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, #fff8ee, transparent 40%),
+        radial-gradient(circle at bottom right, #f7dfc9, transparent 40%),
+        linear-gradient(135deg, #fffaf4, #f5e5d5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      color: #5a4338;
+    }
+
+    .invitation {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid #d7b98c;
+      border-radius: 28px;
+      padding: 48px 28px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(89,62,42,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .invitation::before,
+    .invitation::after {
+      content: "✦";
+      position: absolute;
+      font-size: 90px;
+      color: rgba(201,160,99,0.12);
+    }
+
+    .invitation::before {
+      top: -20px;
+      left: -10px;
+    }
+
+    .invitation::after {
+      bottom: -25px;
+      right: -10px;
+    }
+
+    .small-title {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      color: #a37b4c;
+      margin-bottom: 20px;
+    }
+
+    .celebrate {
+      font-size: 20px;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 52px;
+      font-weight: normal;
+      color: #9b7043;
+      margin: 5px 0;
+    }
+
+    .turning {
+      font-size: 20px;
+      margin-bottom: 28px;
+    }
+
+    .age {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      border: 2px solid #c49a67;
+      font-size: 38px;
+      color: #9b7043;
+      margin-bottom: 30px;
+      background: #fffaf5;
+    }
+
+    .divider {
+      width: 90px;
+      height: 1px;
+      background: #c49a67;
+      margin: 0 auto 28px;
+    }
+
+    .details {
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .details strong {
+      color: #8c6239;
+    }
+
+    .location {
+      margin-top: 18px;
+    }
+
+    .message {
+      margin: 30px auto 25px;
+      max-width: 360px;
+      line-height: 1.7;
+      font-style: italic;
+      color: #745c50;
+    }
+
+    .rsvp {
+      display: inline-block;
+      text-decoration: none;
+      background: #9b7043;
+      color: white;
+      padding: 15px 28px;
+      border-radius: 50px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.25s;
+      box-shadow: 0 8px 20px rgba(155,112,67,0.25);
+    }
+
+    .rsvp:hover {
+      background: #795333;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #a58a79;
+    }
+
+    @media (max-width: 500px) {
+      .invitation {
+        padding: 42px 20px;
+      }
+
+      h1 {
+        font-size: 44px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="invitation">
+
+    <div class="small-title">You're Invited</div>
+
+    <div class="celebrate">
+      Please join us to celebrate
+    </div>
+
+    <h1>Jasmine</h1>
+
+    <div class="turning">
+      turning
+    </div>
+
+    <div class="age">11</div>
+
+    <div class="divider"></div>
+
+    <div class="details">
+
+      <p>
+        <strong>Saturday, September 26, 2026</strong>
+      </p>
+
+      <p>
+        4:00 PM
+      </p>
+
+      <div class="location">
+        <p><strong>XYZ Palace</strong></p>
+        <p>Portland, Oregon</p>
+      </div>
+
+    </div>
+
+    <div class="message">
+      Come celebrate a beautiful day filled with
+      laughter, happiness, and wonderful memories.
+      We would love to celebrate with you!
+    </div>
+
+    <a
+      class="rsvp"
+      href="https://wa.me/19714509092?text=Hi%21%20We%20would%20like%20to%20RSVP%20for%20Jasmine%27s%2011th%20Birthday%20Party%20on%20September%2026.%20%F0%9F%8E%89"
+      target="_blank"
+      rel="noopener noreferrer">
+      RSVP on WhatsApp
+    </a>
+
+    <div class="footer">
+      ✦ JASMINE'S 11TH BIRTHDAY ✦
+    </div>
+
+  </main>
+
+</body>
+</html>
