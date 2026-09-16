@@ -122,14 +122,9 @@ h1 {
 }
 
 .location-title {
-  font-size: 15px;
   font-weight: bold;
   color: #8c6239;
   margin-bottom: 5px;
-}
-
-.location-address {
-  font-size: 16px;
 }
 
 .rsvp-form {
@@ -142,7 +137,7 @@ h1 {
   margin-bottom: 22px;
 }
 
-label.title {
+.form-title {
   display: block;
   font-weight: bold;
   margin-bottom: 8px;
@@ -157,12 +152,6 @@ input[type="number"] {
   border-radius: 10px;
   font-size: 16px;
   background: #fffdf9;
-  color: #5a4338;
-}
-
-input:focus {
-  outline: 2px solid #c49a67;
-  border-color: transparent;
 }
 
 .date-option {
@@ -175,7 +164,6 @@ input:focus {
   margin-bottom: 10px;
   cursor: pointer;
   background: #fffdf9;
-  transition: 0.2s;
 }
 
 .date-option:hover {
@@ -187,10 +175,6 @@ input:focus {
   margin-top: 3px;
   accent-color: #9b7043;
   transform: scale(1.2);
-}
-
-.date-option span {
-  line-height: 1.4;
 }
 
 .submit-btn {
@@ -207,13 +191,8 @@ input:focus {
   box-shadow: 0 8px 20px rgba(155,112,67,0.25);
 }
 
-.submit-btn:hover {
-  background: #795333;
-}
-
 .submit-btn:disabled {
   opacity: 0.65;
-  cursor: wait;
 }
 
 .note {
@@ -221,24 +200,22 @@ input:focus {
   font-size: 13px;
   color: #967c6c;
   margin-top: 16px;
-  line-height: 1.5;
 }
 
 .success {
   display: none;
-  padding: 35px 15px;
-  text-align: center;
+  padding: 40px 15px;
 }
 
 .success-icon {
-  font-size: 50px;
+  font-size: 55px;
   margin-bottom: 15px;
 }
 
 .success h2 {
   color: #8c6239;
   font-size: 30px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .success p {
@@ -253,10 +230,6 @@ input:focus {
   color: #a58a79;
 }
 
-.hidden-frame {
-  display: none;
-}
-
 @media (max-width: 500px) {
   .invitation {
     padding: 35px 20px;
@@ -264,10 +237,6 @@ input:focus {
 
   h1 {
     font-size: 42px;
-  }
-
-  .choose-title {
-    font-size: 22px;
   }
 }
 </style>
@@ -277,227 +246,262 @@ input:focus {
 
 <main class="invitation">
 
-  <div id="formSection">
+<div id="formSection">
 
-    <div class="small-title">
-      You're Invited
+  <div class="small-title">You're Invited</div>
+
+  <h1>Jasmine</h1>
+
+  <div class="turning">is turning</div>
+
+  <div class="age">11</div>
+
+  <div class="divider"></div>
+
+  <div class="choose-title">
+    Help Us Choose the Perfect Date
+  </div>
+
+  <p class="intro">
+    We're planning Jasmine's 11th birthday celebration!
+    Before we finalize the party date, we'd love to know
+    which day works best for you and your family.
+  </p>
+
+  <div class="location-box">
+
+    <div class="location-title">
+      📍 Party Location
     </div>
 
-    <h1>Jasmine</h1>
+    <strong>16431 NW Harglow Lane</strong><br>
+    Portland, Oregon
 
-    <div class="turning">
-      is turning
-    </div>
+  </div>
 
-    <div class="age">11</div>
 
-    <div class="divider"></div>
+  <form id="rsvpForm" class="rsvp-form">
 
-    <div class="choose-title">
-      Help Us Choose the Perfect Date
-    </div>
+    <div class="form-group">
 
-    <p class="intro">
-      We're planning Jasmine's 11th birthday celebration!
-      Before we finalize the party date, we'd love to know
-      which day works best for you and your family.
-    </p>
+      <label class="form-title">
+        Guest / Family Name
+      </label>
 
-    <div class="location-box">
-
-      <div class="location-title">
-        📍 Party Location
-      </div>
-
-      <div class="location-address">
-        <strong>16431 NW Harglow Lane</strong><br>
-        Portland, Oregon
-      </div>
+      <input
+        id="guestName"
+        type="text"
+        placeholder="Enter your name"
+        required>
 
     </div>
 
-    <form
-      id="rsvpForm"
-      class="rsvp-form"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSeced15qrGrz0jq1RwHZpG9poxLPahsXAW_X9KoXQQsjkkjpw/formResponse"
-      method="POST"
-      target="hidden_iframe">
 
-      <div class="form-group">
+    <div class="form-group">
 
-        <label class="title" for="guestName">
-          Guest / Family Name
-        </label>
+      <label class="form-title">
+        Number of Guests
+      </label>
+
+      <input
+        id="guestCount"
+        type="number"
+        placeholder="Example: 3"
+        min="1"
+        max="20"
+        required>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label class="form-title">
+        Which date works best for you?
+      </label>
+
+
+      <label class="date-option">
 
         <input
-          id="guestName"
-          type="text"
-          name="entry.753939815"
-          placeholder="Enter your name"
+          type="radio"
+          name="dateChoice"
+          value="Friday, September 25, 2026"
           required>
 
-      </div>
+        <span>
+          <strong>Friday, September 25, 2026</strong>
+        </span>
 
-      <div class="form-group">
+      </label>
 
-        <label class="title" for="guestCount">
-          Number of Guests
-        </label>
+
+      <label class="date-option">
 
         <input
-          id="guestCount"
-          type="number"
-          name="entry.136585082"
-          placeholder="Example: 3"
-          min="1"
-          max="20"
-          required>
+          type="radio"
+          name="dateChoice"
+          value="Saturday, September 26, 2026">
 
-      </div>
+        <span>
+          <strong>Saturday, September 26, 2026</strong>
+        </span>
 
-      <div class="form-group">
-
-        <label class="title">
-          Which date works best for you?
-        </label>
-
-        <label class="date-option">
-
-          <input
-            type="radio"
-            name="entry.1148632353"
-            value="Friday, September 25, 2026"
-            required>
-
-          <span>
-            <strong>Friday, September 25, 2026</strong>
-          </span>
-
-        </label>
-
-        <label class="date-option">
-
-          <input
-            type="radio"
-            name="entry.1148632353"
-            value="Saturday, September 26, 2026">
-
-          <span>
-            <strong>Saturday, September 26, 2026</strong>
-          </span>
-
-        </label>
-
-        <label class="date-option">
-
-          <input
-            type="radio"
-            name="entry.1148632353"
-            value="Either date works for us">
-
-          <span>
-            <strong>Either date works for us</strong>
-          </span>
-
-        </label>
-
-      </div>
-
-      <button
-        id="submitButton"
-        class="submit-btn"
-        type="submit">
-        Submit RSVP
-      </button>
-
-      <div class="note">
-        Thank you for helping us choose the best date. ♡
-      </div>
-
-    </form>
-
-  </div>
+      </label>
 
 
-  <div id="successSection" class="success">
+      <label class="date-option">
 
-    <div class="success-icon">
-      🎉
+        <input
+          type="radio"
+          name="dateChoice"
+          value="Either date works for us">
+
+        <span>
+          <strong>Either date works for us</strong>
+        </span>
+
+      </label>
+
     </div>
 
-    <h2>Thank You!</h2>
 
-    <p>
-      Your response has been received.
-    </p>
+    <button
+      id="submitButton"
+      class="submit-btn"
+      type="submit">
 
-    <p>
-      We can't wait to celebrate
-      Jasmine's 11th birthday with you!
-    </p>
+      Submit RSVP
 
-    <br>
-
-    <p>
-      📍 15945 NW Hosmer Lane<br>
-      Portland, Oregon
-    </p>
-
-  </div>
+    </button>
 
 
-  <div class="footer">
-    ✦ JASMINE'S 11TH BIRTHDAY ✦
-  </div>
+    <div class="note">
+      Thank you for helping us choose the best date. ♡
+    </div>
+
+  </form>
+
+</div>
+
+
+<div id="successSection" class="success">
+
+  <div class="success-icon">🎉</div>
+
+  <h2>Thank You!</h2>
+
+  <p>
+    Your RSVP has been received.
+  </p>
+
+  <p>
+    We can't wait to celebrate
+    Jasmine's 11th birthday with you!
+  </p>
+
+</div>
+
+
+<div class="footer">
+  ✦ JASMINE'S 11TH BIRTHDAY ✦
+</div>
 
 </main>
 
 
-<iframe
-  name="hidden_iframe"
-  id="hidden_iframe"
-  class="hidden-frame">
-</iframe>
-
-
 <script>
+
+const GOOGLE_FORM =
+"https://docs.google.com/forms/d/e/1FAIpQLSeced15qrGrz0jq1RwHZpG9poxLPahsXAW_X9KoXQQsjkkjpw/formResponse";
 
 const form = document.getElementById("rsvpForm");
 const button = document.getElementById("submitButton");
-const formSection = document.getElementById("formSection");
-const successSection = document.getElementById("successSection");
 
-let submitted = false;
+form.addEventListener("submit", function(event) {
 
-form.addEventListener("submit", function() {
+  event.preventDefault();
 
-  submitted = true;
+  const guestName =
+    document.getElementById("guestName").value.trim();
+
+  const guestCount =
+    document.getElementById("guestCount").value;
+
+  const selectedDate =
+    document.querySelector(
+      'input[name="dateChoice"]:checked'
+    );
+
+  if (!guestName || !guestCount || !selectedDate) {
+    alert("Please complete all RSVP information.");
+    return;
+  }
 
   button.disabled = true;
   button.textContent = "Submitting...";
 
-});
 
-document.getElementById("hidden_iframe")
-  .addEventListener("load", function() {
+  const data = new URLSearchParams();
 
-    if (submitted) {
+  data.append(
+    "entry.753939815",
+    guestName
+  );
 
-      setTimeout(function() {
+  data.append(
+    "entry.136585082",
+    guestCount
+  );
 
-        formSection.style.display = "none";
-        successSection.style.display = "block";
+  data.append(
+    "entry.1148632353",
+    selectedDate.value
+  );
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
 
-      }, 500);
+  fetch(GOOGLE_FORM, {
 
-    }
+    method: "POST",
+
+    mode: "no-cors",
+
+    headers: {
+      "Content-Type":
+      "application/x-www-form-urlencoded"
+    },
+
+    body: data.toString()
+
+  })
+
+  .then(function() {
+
+    document.getElementById("formSection")
+      .style.display = "none";
+
+    document.getElementById("successSection")
+      .style.display = "block";
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  })
+
+  .catch(function() {
+
+    alert(
+      "We couldn't submit your RSVP. Please try again."
+    );
+
+    button.disabled = false;
+    button.textContent = "Submit RSVP";
 
   });
+
+});
 
 </script>
 
