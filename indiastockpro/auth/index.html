@@ -8,20 +8,19 @@
 
     <style>
         body {
-            margin: 0;
-            padding: 30px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             background: #f5f5f7;
-            color: #1d1d1f;
+            margin: 0;
+            padding: 40px 20px;
         }
 
         .card {
-            max-width: 600px;
+            max-width: 650px;
             margin: 60px auto;
             background: white;
-            padding: 30px;
+            padding: 32px;
             border-radius: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
         }
 
         h1 {
@@ -29,27 +28,29 @@
         }
 
         .success {
-            color: #16803c;
+            color: #16883e;
             font-weight: 600;
         }
 
         .error {
-            color: #b42318;
+            color: #c62828;
             font-weight: 600;
         }
 
-        .code-box {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f2f2f7;
-            border-radius: 10px;
-            overflow-wrap: anywhere;
+        .status {
+            color: #555;
+            line-height: 1.6;
         }
 
-        .warning {
+        .button {
+            display: inline-block;
             margin-top: 20px;
-            font-size: 14px;
-            color: #666;
+            padding: 13px 20px;
+            background: #007aff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -61,58 +62,79 @@
     <h1>IndiaStockPro</h1>
 
     <div id="result">
-        Processing FYERS authentication...
+        <p class="status">
+            Processing FYERS authentication...
+        </p>
     </div>
 
 </div>
 
 <script>
+(function () {
+
+    const result = document.getElementById("result");
+
     const params = new URLSearchParams(window.location.search);
 
     const authCode = params.get("auth_code");
     const state = params.get("state");
 
-    const result = document.getElementById("result");
-
-    if (authCode) {
-
-        result.innerHTML = `
-            <p class="success">
-                ✓ FYERS authentication successful
-            </p>
-
-            <p>
-                Authorization code received successfully.
-            </p>
-
-            <div class="code-box">
-                <strong>Auth Code:</strong><br>
-                ${authCode}
-            </div>
-
-            <div class="code-box">
-                <strong>State:</strong><br>
-                ${state || "Not returned"}
-            </div>
-
-            <p class="warning">
-                Keep this authorization code private.
-                Do not share screenshots containing the code.
-            </p>
-        `;
-
-    } else {
+    if (!authCode) {
 
         result.innerHTML = `
             <p class="error">
                 No FYERS authorization code received.
             </p>
 
-            <p>
+            <p class="status">
                 This page is ready to receive the FYERS login callback.
             </p>
         `;
+
+        return;
     }
+
+    /*
+        Return the authorization result to IndiaStockPro.
+
+        The auth code is NOT displayed on this webpage.
+        No FYERS Secret ID or access token is stored here.
+    */
+
+    const appURL =
+        "indiastockpro://fyers-auth" +
+        "?auth_code=" + encodeURIComponent(authCode) +
+        "&state=" + encodeURIComponent(state || "");
+
+    result.innerHTML = `
+        <p class="success">
+            ✓ FYERS authentication successful
+        </p>
+
+        <p class="status">
+            Returning to IndiaStockPro...
+        </p>
+
+        <a class="button" id="openApp" href="#">
+            Open IndiaStockPro
+        </a>
+    `;
+
+    const openButton = document.getElementById("openApp");
+
+    openButton.href = appURL;
+
+    /*
+        Attempt to return automatically.
+        The button remains available in case the browser
+        does not allow automatic opening.
+    */
+
+    setTimeout(function () {
+        window.location.href = appURL;
+    }, 600);
+
+})();
 </script>
 
 </body>
